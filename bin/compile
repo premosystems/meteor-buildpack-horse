@@ -5,7 +5,7 @@
 # fail fast.
 set -e
 # debug verbosely.
-set -x
+# set -x
 
 #Load config vars into environment (from https://devcenter.heroku.com/articles/buildpack-api)
 export_env_dir() {
@@ -24,7 +24,7 @@ export_env_dir() {
 export_env_dir $3
 
 # Add the ~/.meteor directory to the path
-PATH=$PATH:$HOME/.meteor
+export PATH=$PATH:$HOME/.meteor
 # Get the path to dir one above this file.
 BUILDPACK_DIR=$(cd -P -- "$(dirname -- "$0")" && cd .. && pwd -P)
 # Get the directory our app is checked out in (the "BUILD_DIR"), passed by Heroku
